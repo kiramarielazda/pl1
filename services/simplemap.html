@@ -22,17 +22,17 @@
         }
     </style>
     <script>
-      <!---Map JS class objects define a single map on a page - a new instance is required for each map (i.e. the 'new' operator below)--->
-      <!--- Define a new variable named 'map'--->
+      /*Map JS class objects define a single map on a page - a new instance is required for each map (i.e. the 'new' operator below)
+        Define a new variable named 'map'*/
       let map;
 
       function initMap() {
-        <!---assigns map to a new Map object. The Map() function is a constructor--->
-        <!---The script references the HTML element "map" and inserts the map there--->
+        /*assigns map to a new Map object. The Map() function is a constructor.
+        The script references the HTML element "map" and inserts the map there*/
         map = new google.maps.Map(document.getElementById("map"), {
-          <!---Setting the center and zoom of a map is required--->
+          /*Setting the center and zoom of a map is required*/
           center: { lat: 49.2417, lng: -123.1126 },
-          zoom: 12, <!---This zoom level shows detail somewhere between City view and Street view--->
+          zoom: 12, /*This zoom level shows detail somewhere between City view and Street view*/
         });
       }
     </script>
