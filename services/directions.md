@@ -27,6 +27,9 @@ Our route in this case requested directions from two places. Before a route can 
 
 #### **Q) Is there a limit to the number of "stops" in the directions API?** 
 Hint: the answers (yes there are multiple) can be found on the [Usage and Billing](https://developers.google.com/maps/documentation/directions/usage-and-billing) page. 
+Maximum allowed number of waypoints per request: 25
+Using 1–10 waypoints is billed at the Directions SKU rate.
+Using more that 10 waypoints (11–25) is billed at the Directions Advanced SKU rate.
 
 > _Interested in learning more about Places? You can discover the place id of any location using this tool: https://googlemaps.github.io/js-samples/dist/samples/places-placeid-finder/index.html_
 >
