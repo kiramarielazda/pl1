@@ -9,7 +9,7 @@ Be creative and use multiple parameters from the API documentation to earn a top
 ## Directions URL
 
 ```
-https://maps.googleapis.com/maps/api/directions/json?origin=place_id:ChIJIcZrTvVzhlQRiKTnD03vt7Q&destination=place_id:ChIJG3q8d85zhlQRIH1pyAsVpEc&alternatives=true&mode=transit&transit_mode=rail&transit_routing_preference=fewer_transfers&key=AIzaSyCM-WWHYHIKY-do4kquMy9Z4wQaQx51AuE
+https://maps.googleapis.com/maps/api/directions/json?origin=place_id:ChIJ0eAbuXJ0hlQRCI7kPC_UJ_I&destination=place_id:ChIJG3q8d85zhlQRIH1pyAsVpEc&alternatives=true&mode=bicycling&waypoints=optimize:true|place_id:ChIJ7_0WpPdzhlQR2ULoL78zALs|via:place_id:ChIJIcZrTvVzhlQRiKTnD03vt7Q&key=AIzaSyCM-WWHYHIKY-do4kquMy9Z4wQaQx51AuE
 ```
 
 ## Next paste the full JSON response to this query here:
