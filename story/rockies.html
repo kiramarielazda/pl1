@@ -43,10 +43,8 @@
         const tent = {
           url: "https://img.icons8.com/ios-filled/50/000000/camping-tent.png"
         };
-        let index=0;
-        for index < campgrounds.length {
+        for (let index = 0; index < campgrounds.length; index++) {
           const campsite = campgrounds[index];
-          index++;
           new google.maps.Marker({
             position: {lat:campsite[1], lng:campsite[2]},
             map,
