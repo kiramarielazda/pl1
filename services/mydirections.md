@@ -12,7 +12,7 @@ Be creative and use multiple parameters from the API documentation to earn a top
 https://maps.googleapis.com/maps/api/directions/json?origin=place_id%3AChIJ0eAbuXJ0hlQRCI7kPC_UJ_I&destination=place_id%3AChIJj5efACYDh1QRP3Nqc3p9n8M
 &departure_time=now&traffic_model=pessimistic&waypoints=via%3Aplace_id%3AChIJDZ44NDtvhlQRpGV7zxZYWmo%7Cvia%3Aplace_id%3AChIJQd2nCD74hlQRq2GXED0I15A&key=AIzaSyCM-WWHYHIKY-do4kquMy9Z4wQaQx51AuE
 ```
-
+I decided to calculate the route from my apartment in Vancouver to a favorite climbing spot of ours in Cheakamus, while passing through our friend's neighbourhood to pick her up and stopping at our favorite climbing store in Squamish on the way. I used 'via' though so that I could still enable some traffic modeling to be done and since we hate getting our hopes up when driving anywhere here, I set the trafic model to pessimistic so that we could potentially be pleasantly surprised!
 ## Next paste the full JSON response to this query here:
 
 ```Version:0.9
