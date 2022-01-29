@@ -29,7 +29,7 @@
         map = new google.maps.Map(document.getElementById("map"), {
           /*center on Banff but showing all of the Rockies*/
           center: { lat:  51.549, lng: -115.815 }, 
-          zoom: 8,
+          zoom: 6,
         });
         setMarkers(map);
       }
@@ -41,7 +41,8 @@
       ];
       function setMarkers(map) {
         const tent = {
-          url: "https://img.icons8.com/ios-filled/50/000000/camping-tent.png"
+          url: "https://img.icons8.com/ios-filled/50/000000/camping-tent.png",
+          size: new google.maps.Size(20,32)
         };
         for (let index = 0; index < campgrounds.length; index++) {
           const campsite = campgrounds[index];
