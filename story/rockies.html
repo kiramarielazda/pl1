@@ -27,11 +27,34 @@
         /*assigns map to a new Map object. The Map() function is a constructor.
         The script references the HTML element "map" and inserts the map there*/
         map = new google.maps.Map(document.getElementById("map"), {
-          /*Setting the center (in this case, my neighbourhood in Vancouver) and zoom of a map is required*/
-          center: { lat: 52.816, lng: -117.917 }, 
-          zoom: 10, /*This zoom level shows detail somewhere between City view and Street view*/
+          /*center on Banff but showing all of the Rockies*/
+          center: { lat:  51.549, lng: -115.815 }, 
+          zoom: 8,
         });
+        setMarkers(map);
       }
+      const campgrounds = [
+        ["Townsite Campground, Waterton Lakes", 49.0484393, -113.9093212],
+        ["Wabasso Campground, Jasper", 52.7643534, -117.987634973],
+        ["Tunnel Mountain Village Campground, Banff", 51.195413052, -115.522632340],
+        ["Lake Louise Campground, Banff", 51.41773100, -116.17266119],
+      ];
+      function setMarkers(map) {
+        const tent = {
+          url: "https://img.icons8.com/ios-filled/50/000000/camping-tent.png"
+        };
+        let index=0;
+        for index < campgrounds.length {
+          const campsite = campgrounds[index];
+          index++;
+          new google.maps.Marker({
+            position: {lat:campsite[1], lng:campsite[2]},
+            map,
+            icon: tent,
+            title: campsite[0]
+          });
+        }
+      }   
     </script>
   </head>
   <body>
