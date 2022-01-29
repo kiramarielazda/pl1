@@ -30,8 +30,12 @@
           /*center on Banff but showing all of the Rockies*/
           center: { lat:  51.549, lng: -115.815 }, 
           zoom: 6,
+          mapTypeControlOptions: {
+            mapTypeIds: ["roadmap", "satellite", "hybrid", "terrain", "styled_map"],
+          },
         });
         setMarkers(map);
+        map.setMapTypeId("terrain");
       }
       const campgrounds = [
         ["Townsite Campground, Waterton Lakes", 49.0484393, -113.9093212],
