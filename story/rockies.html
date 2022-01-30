@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -23,7 +22,6 @@
       /*Map JS class objects define a single map on a page - a new instance is required for each map (i.e. the 'new' operator below)
         Define a new variable named 'map'*/
       let map;
-
       function initMap() {
         /*assigns map to a new Map object. The Map() function is a constructor.
         The script references the HTML element "map" and inserts the map there*/
@@ -33,6 +31,11 @@
           zoom: 6,
           mapTypeId: "terrain",
         });
+        setMarkers(map);
+        marker.addListener("click", () => {
+          map.setZoom(12);
+          map.setCenter(marker.getPosition());
+        });    
         const hikingRoutes = 
             [{ lat: 49.04703, lng: -113.91664},
             { lat: 49.04665, lng: -113.9169},
@@ -184,18 +187,14 @@
             strokeWeight: 3,
         });
         hike.setMap(map);
-        const campgrounds = [
+      }
+      const campgrounds = [
         ["Townsite Campground, Waterton Lakes", 49.0484393, -113.9093212],
         ["Wabasso Campground, Jasper", 52.7643534, -117.987634973],
         ["Tunnel Mountain Village Campground, Banff", 51.195413052, -115.522632340],
         ["Lake Louise Campground, Banff", 51.41773100, -116.17266119],
-      ];
-      const marker = new google.maps.Marker({
-        position: {lat: 49.0484393, lng: -113.9093212},
-        map,
-        title: "Click to zoom",
-        });
-      /*function setMarkers(map) {
+        ];
+      function setMarkers(map) {
         const tent = {
           url: "https://img.icons8.com/fluency-systems-regular/48/000000/camping-tent.png",
           scaledSize: new google.maps.Size(24,24),
@@ -210,12 +209,6 @@
           });
         }
         }
-        setMarkers(map);*/
-        marker.addListener("click", () => {
-          map.setZoom(12);
-          map.setCenter(marker.getPosition());
-        });    
-      }
     </script>
   </head>
   <body>
