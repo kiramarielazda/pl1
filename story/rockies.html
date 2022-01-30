@@ -33,11 +33,6 @@
           zoom: 6,
           mapTypeId: "terrain",
         });
-        setMarkers(map);
-        map.addListener("click", () => {
-          map.setZoom(12);
-          map.setCenter(marker.getPosition());
-        });
         const hikingRoutes = 
             [{ lat: 49.04703, lng: -113.91664},
 { lat: 49.04665, lng: -113.9169},
@@ -220,6 +215,11 @@
             div.innerHTML = '<img src="' + icon + '"> ' + name;
             legend.appendChild(div);*/
         }
+        setMarkers(map);
+        map.addListener("click", () => {
+          map.setZoom(12);
+          map.setCenter(marker.getPosition());
+        });
       }
       
     </script>
