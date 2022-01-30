@@ -30,12 +30,24 @@
           /*center on Banff but showing all of the Rockies*/
           center: { lat:  51.549, lng: -115.815 }, 
           zoom: 6,
-          mapTypeControlOptions: {
-            mapTypeIds: ["roadmap", "satellite", "hybrid", "terrain", "styled_map"],
-          },
+          mapTypeId: "terrain",
         });
-        setMarkers(map);
-        map.setMapTypeId("terrain");
+        const hikingRoutes = 
+            [{lat: 49.048015218732615, lng:-113.91639631067162},
+            { lat: 49.04081421997786, lng: -113.91493956982293},
+            { lat: 49.037099674654186, lng: -113.91263482785665},
+            { lat: 49.034497882069374, lng: -113.91978947290502},
+            { lat: 49.0342174726835, lng: -113.9279417993693},
+            { lat: 49.02977320652821, lng: -113.93489270611857}];
+        const hike = new google.maps.Polyline({
+            path: hikingRoutes,
+            geodesic: true,
+            strokeColor: "#FF0000",
+            strokeOpacity: 1.0,
+            strokeWeight: 2,
+        });
+        hike.setMap(map);
+
       }
       const campgrounds = [
         ["Townsite Campground, Waterton Lakes", 49.0484393, -113.9093212],
