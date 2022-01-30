@@ -32,10 +32,6 @@
           mapTypeId: "terrain",
         });
         setMarkers(map);
-        marker.addListener("click", () => {
-          map.setZoom(12);
-          map.setCenter(marker.getPosition());
-        });    
         const hikingRoutes = 
             [{ lat: 49.04703, lng: -113.91664},
             { lat: 49.04665, lng: -113.9169},
@@ -187,7 +183,6 @@
             strokeWeight: 3,
         });
         hike.setMap(map);
-      }
       const campgrounds = [
         ["Townsite Campground, Waterton Lakes", 49.0484393, -113.9093212],
         ["Wabasso Campground, Jasper", 52.7643534, -117.987634973],
@@ -207,8 +202,15 @@
             icon: tent,
             title: campsite[0]
           });
+          function zoomy(marker){
+            google.maps.event.addListener(marker,"click", () => {
+          map.setZoom(12);
+          map.setCenter(marker.getPosition());
+        });
+    }    
         }
         }
+    }
     </script>
   </head>
   <body>
