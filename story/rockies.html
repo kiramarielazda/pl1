@@ -205,7 +205,7 @@
         }
         }
         setMarkers(map);
-        map.addListener("click", () => {
+        marker.addListener("click", () => {
           map.setZoom(12);
           map.setCenter(marker.getPosition());
         });    
