@@ -203,14 +203,13 @@
             icon: tent,
             title: campsite[0]
           });
-          function zoomy(marker){
-            google.maps.event.addListener(marker,"click", () => {
+          google.maps.event.addListener(marker,"click", () => {
           map.setZoom(12);
           map.setCenter(marker.getPosition());
         });
     }    
         }
-        }
+        
     </script>
   </head>
   <body>
