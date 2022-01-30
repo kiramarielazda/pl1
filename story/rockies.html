@@ -208,6 +208,10 @@
           map.setZoom(12);
           map.setCenter(marker.getPosition());
         });
+          google.maps.event.addListener(marker, "dblclick", () => {
+            map.setZoom(6);
+            map.setCenter({ lat:  51.549, lng: -115.815 });
+          });
     }    
         }
         
