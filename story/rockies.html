@@ -25,6 +25,7 @@
       function initMap() {
         /*assigns map to a new Map object. The Map() function is a constructor.
         The script references the HTML element "map" and inserts the map there*/
+        const infowindow = new google.maps.InfoWindow();
         map = new google.maps.Map(document.getElementById("map"), {
           /*center on Banff but showing all of the Rockies*/
           center: { lat:  51.549, lng: -115.815 }, 
@@ -83,13 +84,6 @@
         ["Tunnel Mountain Trail", "4.5 km", "267 m", 51.177196059480046, -115.5600803504868],
         ["Valley of the Five Lakes", "4.7 km", "162 m",  52.808421710875415, -118.02347356554966]
       ];
-      /*const contentString = 
-        '<div id="content">' +
-        '<div id="siteNotice">' +
-        "</div>" +
-        '<h1 id="firstHeading" class="firstHeading">Bertha Lake</h1>' +
-        '<div id="bodyContent">'+"<p><b>Length: </b> 12.4 km</p>"+"<p><b>Elevation change: </b> 620 m </p>"
-        +'</div>'+'</div>';*/
       for (let index = 0; index < trails.length; index++) {
         const trail = trails[index];
         const contentString = 
@@ -99,23 +93,18 @@
         '<h1 id="firstHeading" class="firstHeading">'+ trail[0]+'</h1>' +
         '<div id="bodyContent">'+"<p><b>Length: </b>"+trail[1]+"</p>"+"<p><b>Elevation change: </b>"+trail[2]+"</p>"
           +'</div>'+'</div>';
-        const infowindow = new google.maps.InfoWindow({
-          content: contentString,
-        });
         const mark = new google.maps.Marker({
           position: {lat: 49.04816507, lng:-113.9166718},
           map,
-          title: "Bertha Lake Trail"
+          title: trail[0]
         });
         mark.addListener("click", () => {
-          infowindow.open({
-            anchor: mark,
-            map,
-            shouldFocus: false,
-          });
-        });
-      }
+          infowindow.close();
+          infowindow.setContent(contentString);
+          infowindow.open(map,mark);
+      });
     }
+  }
       const campgrounds = [
         ["Townsite Campground, Waterton Lakes", 49.0484393, -113.9093212],
         ["Wabasso Campground, Jasper", 52.7643534, -117.987634973],
