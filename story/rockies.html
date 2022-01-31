@@ -44,7 +44,7 @@
         map = new google.maps.Map(document.getElementById("map"), {
           /*center on Banff but showing all of the Rockies*/
           center: { lat:  51.549, lng: -115.815 }, 
-          zoom: 6,
+          zoom: 8,
           mapTypeId: "terrain",
         });
         setMarkers(map);
@@ -99,7 +99,7 @@
       ];
       const boot = {
           url:"https://img.icons8.com/external-soft-fill-juicy-fish/60/000000/external-hiking-travel-soft-fill-soft-fill-juicy-fish.png",
-          scaledSize: new google.maps.Size(24,24),
+          Size: new google.maps.scaledSize(24,24),
         };
       for (let index = 0; index < trails.length; index++) {
         const trail = trails[index];
@@ -125,7 +125,7 @@
     const icons = {
       Trails: {
         name: "Hiking Trail",
-        icon: "https://img.icons8.com/external-soft-fill-juicy-fish/60/000000/external-hiking-travel-soft-fill-soft-fill-juicy-fish.png",
+        icon: boot /*"https://img.icons8.com/external-soft-fill-juicy-fish/60/000000/external-hiking-travel-soft-fill-soft-fill-juicy-fish.png"*/,
       },
       Campground: {
         name: "Campground",
@@ -141,7 +141,7 @@
       div.innerHTML = '<img src='+icon+'>'+name;
       legend.appendChild(div);
     }
-    map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend);
+    map.controls[google.maps.ControlPosition.RIGHT_TOP].push(legend);
   }
       const campgrounds = [
         ["Townsite Campground, Waterton Lakes", 49.0484393, -113.9093212],
@@ -173,15 +173,7 @@
             map.setCenter({ lat:  51.549, lng: -115.815 });
           });
         }
-        /*for (let index = 0; index < trails.length; index++) {
-          const trail = trails[index];
-          const marker = new google.maps.Marker({
-            position: {lat:trail[3], lng:campsite[4]},
-            map,
-            icon: boot,
-            title: trail[0]
-          });*/
-          }
+      }
     </script>
   </head>
   <body>
