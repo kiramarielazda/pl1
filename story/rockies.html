@@ -82,8 +82,12 @@
         ["Bertha Lake Trail", "12.4 km", "620 m", 49.04816507323466, -113.91667188647916],
         ["Lake Agnes Trail", "7.4 km", "435 m", 51.41737071868133, -116.21939061999059],
         ["Tunnel Mountain Trail", "4.5 km", "267 m", 51.177196059480046, -115.5600803504868],
-        ["Valley of the Five Lakes", "4.7 km", "162 m",  52.808421710875415, -118.02347356554966]
+        ["Valley of the Five Lakes Trail", "4.7 km", "162 m",  52.808421710875415, -118.02347356554966]
       ];
+      const boot = {
+          url:"https://img.icons8.com/external-soft-fill-juicy-fish/60/000000/external-hiking-travel-soft-fill-soft-fill-juicy-fish.png",
+          Size: new google.maps.Size(24,24),
+        };
       for (let index = 0; index < trails.length; index++) {
         const trail = trails[index];
         const contentString = 
@@ -96,7 +100,8 @@
         const mark = new google.maps.Marker({
           position: {lat: trail[3], lng: trail[4]},
           map,
-          title: trail[0]
+          title: trail[0],
+          icon: boot
         });
         mark.addListener("click", () => {
           infowindow.close();
@@ -104,6 +109,26 @@
           infowindow.open(map,mark);
       });
     }
+    const icons = {
+      Trails: {
+        name: "Hiking Trail",
+        icon: "https://img.icons8.com/external-soft-fill-juicy-fish/60/000000/external-hiking-travel-soft-fill-soft-fill-juicy-fish.png",
+      },
+      Campground: {
+        name: "Campground",
+        icon: "https://img.icons8.com/external-those-icons-lineal-color-those-icons/24/000000/external-camping-camping-hiking-those-icons-lineal-color-those-icons.png"
+      }
+    };
+    const legend = document.getElementById("legend");
+    for (const key in icons) {
+      const type=icons[key];
+      const name = type.name;
+      const icon = type.icon;
+      const div = document.createElement("div");
+      div.innerHTML = '<img src='+icon+'>'+name;
+      legend.appendChild(div);
+    }
+    map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend);
   }
       const campgrounds = [
         ["Townsite Campground, Waterton Lakes", 49.0484393, -113.9093212],
@@ -116,10 +141,6 @@
       function setMarkers(map) {
         const tent = {
           url: "https://img.icons8.com/external-those-icons-lineal-color-those-icons/24/000000/external-camping-camping-hiking-those-icons-lineal-color-those-icons.png",
-          Size: new google.maps.Size(24,24),
-        };
-        const boot = {
-          url:"https://img.icons8.com/external-soft-fill-juicy-fish/60/000000/external-hiking-travel-soft-fill-soft-fill-juicy-fish.png",
           Size: new google.maps.Size(24,24),
         };
         for (let index = 0; index < campgrounds.length; index++) {
@@ -156,6 +177,7 @@
           I was lucky enough to get to explore them during my roadtrip from Montreal to Vancouver. 
           Here, I share some of my favorite campgrounds and hikes of various levels!</h2>
     <div id="map"></div>
+    <div id="legend"><h3>Legend</h3></div>
 
         <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
     <script
