@@ -91,6 +91,15 @@
             strokeWeight: 3,
         });
         hike.setMap(map);
+        map.set('styles', [
+  {
+    featureType: "all",
+    elementType: "labels",
+    stylers: [
+      { visibility: "off" }
+    ]
+  }
+]);
         const trails = [
         ["Bertha Lake Trail", "12.4 km", "620 m", 49.04816507323466, -113.91667188647916],
         ["Lake Agnes Trail", "7.4 km", "435 m", 51.41737071868133, -116.21939061999059],
