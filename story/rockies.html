@@ -114,7 +114,8 @@
           position: {lat: trail[3], lng: trail[4]},
           map,
           title: trail[0],
-          icon: boot
+          icon: boot,
+          zIndex: 1,
         });
         mark.addListener("click", () => {
           infowindow.close();
@@ -125,11 +126,11 @@
     const icons = {
       Trails: {
         name: "Hiking Trail",
-        icon: boot.url /*"https://img.icons8.com/external-soft-fill-juicy-fish/60/000000/external-hiking-travel-soft-fill-soft-fill-juicy-fish.png"*/,
+        icon: boot.url,
       },
       Campground: {
         name: "Campground",
-        icon: "https://img.icons8.com/external-those-icons-lineal-color-those-icons/24/000000/external-camping-camping-hiking-those-icons-lineal-color-those-icons.png",
+        icon: tent.url /*"https://img.icons8.com/external-those-icons-lineal-color-those-icons/24/000000/external-camping-camping-hiking-those-icons-lineal-color-those-icons.png"*/
       }
     };
     const legend = document.getElementById("legend");
@@ -138,7 +139,7 @@
       const name = type.name;
       const icon = type.icon;
       const div = document.createElement("div");
-      div.innerHTML = '<img src='+icon+'>'+name;
+      div.innerHTML = '<img src='+icon+'width="24" height="24">'+name;
       legend.appendChild(div);
     }
     map.controls[google.maps.ControlPosition.RIGHT_TOP].push(legend);
@@ -162,7 +163,8 @@
             position: {lat:campsite[1], lng:campsite[2]},
             map,
             icon: tent,
-            title: campsite[0]
+            title: campsite[0],
+            zIndex:3
           });
           google.maps.event.addListener(marker,"click", () => {
           map.setZoom(12);
