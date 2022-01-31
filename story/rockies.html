@@ -76,13 +76,21 @@
             strokeOpacity: 1.0,
             strokeWeight: 3,
         });
+        hike.setMap(map);
         const trails = [
         ["Bertha Lake Trail", "12.4 km", "620 m", 49.04816507323466, -113.91667188647916],
         ["Lake Agnes Trail", "7.4 km", "435 m", 51.41737071868133, -116.21939061999059],
         ["Tunnel Mountain Trail", "4.5 km", "267 m", 51.177196059480046, -115.5600803504868],
         ["Valley of the Five Lakes", "4.7 km", "162 m",  52.808421710875415, -118.02347356554966]
       ];
-      for (let index = 0; index < trails.length; index++) {
+      const contentString = 
+        '<div id="content">' +
+        '<div id="siteNotice">' +
+        "</div>" +
+        '<h1 id="firstHeading" class="firstHeading">Bertha Lake</h1>' +
+        '<div id="bodyContent">'+"<p><b>Length: </b> 12.4 km</p>"+"<p><b>Elevation change: </b> 620 m </p>"
+        +'</div>'+'</div>';
+      /*for (let index = 0; index < trails.length; index++) {
         const trail = trails[index];
         const contentString = 
         '<div id="content">' +
@@ -90,15 +98,16 @@
         "</div>" +
         '<h1 id="firstHeading" class="firstHeading">'+ trail[0]+'</h1>' +
         '<div id="bodyContent">'+"<p><b>Length: </b>"+trail[1]+"</p>"+"<p><b>Elevation change: </b>"+trail[2]+"</p>"
-          +'</div>'+'</div>';
-        const infowindow = new google.maps.infoWindow({
+          +'</div>'+'</div>';*/
+      const infowindow = new google.maps.InfoWindow({
           content: contentString,
         });
-        const mark = new google.maps.Marker({
-          position: {lat: trail[3], lng:trail[4]},
+      const mark = new google.maps.Marker({
+          position: {lat: 49.04816507, lng:-113.9166718},
           map,
+          title: "Bertha Lake Trail"
         });
-        mark.addListener("click", () => {
+      mark.addListener("click", () => {
           infowindow.open({
             anchor: mark,
             map,
@@ -106,8 +115,6 @@
           });
         });
       }
-        hike.setMap(map);
-              }
       const campgrounds = [
         ["Townsite Campground, Waterton Lakes", 49.0484393, -113.9093212],
         ["Wabasso Campground, Jasper", 52.7643534, -117.987634973],
