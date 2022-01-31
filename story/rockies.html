@@ -94,7 +94,7 @@
         '<div id="bodyContent">'+"<p><b>Length: </b>"+trail[1]+"</p>"+"<p><b>Elevation change: </b>"+trail[2]+"</p>"
           +'</div>'+'</div>';
         const mark = new google.maps.Marker({
-          position: {lat: 49.04816507, lng:-113.9166718},
+          position: {lat: trail[3], lng: trail[4]},
           map,
           title: trail[0]
         });
