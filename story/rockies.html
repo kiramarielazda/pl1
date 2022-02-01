@@ -108,9 +108,9 @@
 ]);
         const trails = [
         ["Bertha Lake Trail", "12.4 km", "620 m", 49.04816507323466, -113.91667188647916, "Bertha"],
-        ["Lake Agnes Trail", "7.4 km", "435 m", 51.41737071868133, -116.21939061999059],
-        ["Tunnel Mountain Trail", "4.5 km", "267 m", 51.177196059480046, -115.5600803504868],
-        ["Valley of the Five Lakes Trail", "4.7 km", "162 m",  52.808421710875415, -118.02347356554966]
+        ["Lake Agnes Trail", "7.4 km", "435 m", 51.41737071868133, -116.21939061999059, "Louise"],
+        ["Tunnel Mountain Trail", "4.5 km", "267 m", 51.177196059480046, -115.5600803504868, "Tunnel"],
+        ["Valley of the Five Lakes Trail", "4.7 km", "162 m",  52.808421710875415, -118.02347356554966, "Valley"]
       ];
       const boot = {
           url:"https://img.icons8.com/external-soft-fill-juicy-fish/60/000000/external-hiking-travel-soft-fill-soft-fill-juicy-fish.png",
@@ -123,7 +123,7 @@
         '<div id="siteNotice">' +
         "</div>" +
         '<h1 id="firstHeading" class="firstHeading">'+ trail[0]+'</h1>' +
-        '<div id="bodyContent">'+"<p><b>Length: </b>"+trail[1]+"</p>"+"<p><b>Elevation change: </b>"+trail[2]+"</p>"+"<p>Check out the page <a href=#"+trail[5]+">here</a></p>"
+        '<div id="bodyContent">'+"<p><b>Length: </b>"+trail[1]+"</p>"+"<p><b>Elevation change: </b>"+trail[2]+"</p>"+"<p>Check out the trail map <a href=#"+trail[5]+">here!</a></p>"
           +'</div>'+'</div>';
         const mark = new google.maps.Marker({
           position: {lat: trail[3], lng: trail[4]},
@@ -202,9 +202,9 @@
     <div id="legend"><h3>Legend</h3></div>
     <div>
       <iframe id='Bertha' src="https://www.google.com/maps/d/embed?mid=1WkjYsmwaTN0UWVRFZnUW7JE6br7va5hD&ehbc=2E312F" width="640" height="480"></iframe>
-      <iframe src="https://www.google.com/maps/d/embed?mid=1p959rpemJRKaOWpu-r_IIr6CRzCzJOO8&ehbc=2E312F" width="640" height="480"></iframe>
-      <iframe src="https://www.google.com/maps/d/embed?mid=1LX7_t3x_bE9Ozx2d16E4a35cpw9fwtgB&ehbc=2E312F" width="640" height="480"></iframe>
-      <iframe src="https://www.google.com/maps/d/embed?mid=1hfe9RRv5vKhS0nmfbilsn1XhSg3Cobou&ehbc=2E312F" width="640" height="480"></iframe>
+      <iframe id='Tunnel' src="https://www.google.com/maps/d/embed?mid=1p959rpemJRKaOWpu-r_IIr6CRzCzJOO8&ehbc=2E312F" width="640" height="480"></iframe>
+      <iframe id='Louise' src="https://www.google.com/maps/d/embed?mid=1LX7_t3x_bE9Ozx2d16E4a35cpw9fwtgB&ehbc=2E312F" width="640" height="480"></iframe>
+      <iframe id='Valley' src="https://www.google.com/maps/d/embed?mid=1hfe9RRv5vKhS0nmfbilsn1XhSg3Cobou&ehbc=2E312F" width="640" height="480"></iframe>
     </div>
 
         <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
