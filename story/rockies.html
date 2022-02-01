@@ -23,7 +23,11 @@
         h1 {
           text-align: center;
           background-color: rgb(225, 240, 205);
-      }
+        }
+        h3 {
+          text-align: center;
+          font-style: oblique;
+        }
         #legend {
           font-family: 'Trebuchet MS', sans-serif;
           background: #fff;
@@ -52,9 +56,7 @@
       .pics {
         width:50%;
         margin:auto;
-      }
-      .row {
-        margin:auto;
+        display:block;
       }
       iframe {
         display:block;
@@ -136,7 +138,7 @@
       ];
       const boot = {
           url:"https://img.icons8.com/external-soft-fill-juicy-fish/60/000000/external-hiking-travel-soft-fill-soft-fill-juicy-fish.png",
-          scaledSize: new google.maps.Size(24,24),
+          scaledSize: new google.maps.Size(48,48),
         };
       for (let index = 0; index < trails.length; index++) {
         const trail = trails[index];
@@ -192,7 +194,7 @@
       function setMarkers(map) {
         const tent = {
           url: "https://img.icons8.com/external-those-icons-lineal-color-those-icons/24/000000/external-camping-camping-hiking-those-icons-lineal-color-those-icons.png",
-          Size: new google.maps.Size(24,24),
+          scaledSize: new google.maps.Size(48,48),
         };
         for (let index = 0; index < campgrounds.length; index++) {
           const campsite = campgrounds[index];
@@ -217,21 +219,16 @@
   </head>
   <body>
     <h1>My Camping Trip Through the Canadian Rockies</h1>
-    <h2>Alberta is home to some of the most impressive and unique mountains in Canada.</h2> 
-    <h2>I was lucky enough to get to explore them during my roadtrip from Montreal to Vancouver. </h2>
-    <h3>Here, I share some of my favorite campgrounds and hikes of various levels!</h3>
+    <h2>Alberta is home to some of the most impressive and unique mountains in Canada; I was lucky enough to explore them during my roadtrip from Montreal to Vancouver. </h2>
+    <h3>Check out some of my favorite campgrounds and hikes of various levels on my map below!</h3>
     <div id="map"></div>
     <div id="legend"><h3>Legend</h3></div>
     <div class='row-container'>
-      <div class='row'>
-        <img class='pics' src='Images/bertha.jpg'>
-      </div>
+      <img class='pics' src='Images/bertha.jpg'>
       <iframe id='Bertha' class='MyMaps' src="https://www.google.com/maps/d/embed?mid=1WkjYsmwaTN0UWVRFZnUW7JE6br7va5hD&ehbc=2E312F&zoom=12"></iframe>
       <iframe id='Tunnel' class='MyMaps' src="https://www.google.com/maps/d/embed?mid=1p959rpemJRKaOWpu-r_IIr6CRzCzJOO8&ehbc=2E312F&zoom=12"></iframe>
       <iframe id='Louise' class='MyMaps' src="https://www.google.com/maps/d/embed?mid=1LX7_t3x_bE9Ozx2d16E4a35cpw9fwtgB&ehbc=2E312F&zoom=12"></iframe>
-      <div class='row'>
-        <img class='pic' src='Images/valley.jpg'>
-      </div>
+      <img class='pics' src='Images/valley.jpg'>
       <iframe id='Valley' class='MyMaps' src="https://www.google.com/maps/d/embed?mid=1hfe9RRv5vKhS0nmfbilsn1XhSg3Cobou&ehbc=2E312F&zoom=12"></iframe>
     </div>
         <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
