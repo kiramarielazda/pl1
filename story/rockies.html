@@ -38,6 +38,11 @@
         #legend img {
           vertical-align: middle;
         }
+      #trailmaps {
+        display: flex;
+        align-items: center;
+        justify-content:center;
+      }
     </style>
     <script>
       /*Map JS class objects define a single map on a page - a new instance is required for each map (i.e. the 'new' operator below)
@@ -200,7 +205,7 @@
           Here, I share some of my favorite campgrounds and hikes of various levels!</h2>
     <div id="map"></div>
     <div id="legend"><h3>Legend</h3></div>
-    <div>
+    <div id='trailmaps'>
       <iframe id='Bertha' src="https://www.google.com/maps/d/embed?mid=1WkjYsmwaTN0UWVRFZnUW7JE6br7va5hD&ehbc=2E312F" width="640" height="480"></iframe>
       <iframe id='Tunnel' src="https://www.google.com/maps/d/embed?mid=1p959rpemJRKaOWpu-r_IIr6CRzCzJOO8&ehbc=2E312F" width="640" height="480"></iframe>
       <iframe id='Louise' src="https://www.google.com/maps/d/embed?mid=1LX7_t3x_bE9Ozx2d16E4a35cpw9fwtgB&ehbc=2E312F" width="640" height="480"></iframe>
