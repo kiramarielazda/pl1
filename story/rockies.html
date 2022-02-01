@@ -65,6 +65,16 @@
         display:block;
         margin: 0 auto;
       }
+      .textContainer {
+        position: relative;
+        text-align: center;
+        color:white;
+      }
+      .bottom-right{
+        position: absolute;
+        bottom: 8px;
+        right:16px;
+      }
     </style>
     <script>
       /*Map JS class objects define a single map on a page - a new instance is required for each map (i.e. the 'new' operator below)
@@ -226,11 +236,17 @@
     <h3>Check out some of my favorite campgrounds and hikes of various levels on my map below!</h3>
     <div id="map"></div>
     <div id="legend"><h3>Legend</h3></div>
-      <img class='pics' src='Images/bertha.jpg'>
+    <div class='textContainer'>
+      <img class='pics' src='Images/bertha.jpg' alt="Bertha Lake">
+      <div class='bottom-right'>Bertha Lake Meadows, Waterton Lakes</div>
+    </div>
       <iframe id='Bertha' class='MyMaps' src="https://www.google.com/maps/d/embed?mid=1WkjYsmwaTN0UWVRFZnUW7JE6br7va5hD&ehbc=2E312F&zoom=12"></iframe>
       <iframe id='Tunnel' class='MyMaps' src="https://www.google.com/maps/d/embed?mid=1p959rpemJRKaOWpu-r_IIr6CRzCzJOO8&ehbc=2E312F&zoom=12"></iframe>
       <iframe id='Louise' class='MyMaps' src="https://www.google.com/maps/d/embed?mid=1LX7_t3x_bE9Ozx2d16E4a35cpw9fwtgB&ehbc=2E312F&zoom=12"></iframe>
-      <img class='pics' src='Images/valley.jpg'>
+      <div class='textContainer'>
+        <img class='pics' src='Images/valley.jpg' alt='Valley of Five Lakes'>
+        <div class='bottom-right'>Emerald Lake, Jasper</div>
+      </div>
       <iframe id='Valley' class='MyMaps' src="https://www.google.com/maps/d/embed?mid=1hfe9RRv5vKhS0nmfbilsn1XhSg3Cobou&ehbc=2E312F&zoom=12"></iframe>
         <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
     <script
