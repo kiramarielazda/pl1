@@ -22,7 +22,7 @@
         }
         h1 {
           text-align: center;
-        }
+      }
         #legend {
           font-family: 'Trebuchet MS', sans-serif;
           background: #fff;
@@ -30,25 +30,25 @@
           margin: 10px;
           border: 3px solid #000;
         }
+
         #legend h3 {
           margin-top: 0;
         }
+
         #legend img {
           vertical-align: middle;
         }
-        #trailmaps {
-          display: flex;
-          align-items: center;
-          justify-content:center;
-        }
-        .MyMaps {
-          width:50%;
-          height:100%;
-        }
-        .pics {
-          width:48%;
-          height:100%;
-        }
+      #trailmaps {
+        display: flex;
+        align-items: center;
+        justify-content:center;
+      }
+      .MyMaps {
+        width:50%;
+      }
+      .pics {
+        width:48%;
+      }
     </style>
     <script>
       /*Map JS class objects define a single map on a page - a new instance is required for each map (i.e. the 'new' operator below)
@@ -64,10 +64,7 @@
           zoom: 7,
           mapTypeId: "terrain",
         });
-        /*call my markers function to add all the campsites to the map*/
         setMarkers(map);
-        /*create a line for the Bertha Lake trail to the map. I wanted to do this for all my hikes but the coordinates would have taken up so much space 
-        and it was hard to get the amount I wanted so I  just did it for the one!*/ 
         const hike = new google.maps.Polyline({
             path: [{ lat: 49.04703, lng: -113.91664},
               { lat: 49.04665, lng: -113.9169},
@@ -110,108 +107,101 @@
             strokeOpacity: 1.0,
             strokeWeight: 3,
         });
-        /*add the trail line to the map*/
         hike.setMap(map);
-        /*change the style of the map so that there are no default labels/markers for Google's points of interest. I found they got in the way of my story!*/
-        map.set('styles', [{
-            featureType: "poi",
-            elementType: "labels",
-            stylers: [{ visibility: "off" }]
-          }
-        ]);
-        /*create a list to hold all the info related to my trails that will appear in the infoWindows on my map*/
+        map.set('styles', [
+  {
+    featureType: "poi",
+    elementType: "labels",
+    stylers: [
+      { visibility: "off" }
+    ]
+  }
+]);
         const trails = [
         ["Bertha Lake Trail", "12.4 km", "620 m", 49.04816507323466, -113.91667188647916, "Bertha"],
         ["Lake Agnes Trail", "7.4 km", "435 m", 51.41737071868133, -116.21939061999059, "Louise"],
         ["Tunnel Mountain Trail", "4.5 km", "267 m", 51.177196059480046, -115.5600803504868, "Tunnel"],
         ["Valley of the Five Lakes Trail", "4.7 km", "162 m",  52.808421710875415, -118.02347356554966, "Valley"]
-        ];
-        /*Creating my boot icon that will be used as the marker for hikes*/
-        const boot = {
+      ];
+      const boot = {
           url:"https://img.icons8.com/external-soft-fill-juicy-fish/60/000000/external-hiking-travel-soft-fill-soft-fill-juicy-fish.png",
           scaledSize: new google.maps.Size(24,24),
         };
-        /*Iterate through the trails and populate the infoWindow content for each*/
-        for (let index = 0; index < trails.length; index++) {
-          const trail = trails[index];
-          const contentString = 
-          '<div id="content">' +
-          '<div id="siteNotice">' +
-          "</div>" +
-          '<h1 id="firstHeading" class="firstHeading">'+ trail[0]+'</h1>' +
-          '<div id="bodyContent">'+"<p><b>Length: </b>"+trail[1]+"</p>"+"<p><b>Elevation change: </b>"+trail[2]+"</p>"+"<p>Check out the trail map <a href=#"+trail[5]+">here!</a></p>"
-            +'</div>'+'</div>';
-            /*add a new boot marker to the map for each trail*/
-          const mark = new google.maps.Marker({
-            position: {lat: trail[3], lng: trail[4]},
-            map,
-            title: trail[0],
-            icon: boot,
-            zIndex: 1,
-          });
-          /*add an event where when the boot is clicked, the infoWindow for that trail pops up*/
-          mark.addListener("click", () => {
-            infowindow.close();
-            infowindow.setContent(contentString);
-            infowindow.open(map,mark);
+      for (let index = 0; index < trails.length; index++) {
+        const trail = trails[index];
+        const contentString = 
+        '<div id="content">' +
+        '<div id="siteNotice">' +
+        "</div>" +
+        '<h1 id="firstHeading" class="firstHeading">'+ trail[0]+'</h1>' +
+        '<div id="bodyContent">'+"<p><b>Length: </b>"+trail[1]+"</p>"+"<p><b>Elevation change: </b>"+trail[2]+"</p>"+"<p>Check out the trail map <a href=#"+trail[5]+">here!</a></p>"
+          +'</div>'+'</div>';
+        const mark = new google.maps.Marker({
+          position: {lat: trail[3], lng: trail[4]},
+          map,
+          title: trail[0],
+          icon: boot,
+          zIndex: 1,
         });
-        }
-        /*Create my tent icon that will be used as the marker for campgrounds*/
-        const tent = {
-            url: "https://img.icons8.com/external-those-icons-lineal-color-those-icons/24/000000/external-camping-camping-hiking-those-icons-lineal-color-those-icons.png",
-            Size: new google.maps.Size(24,24),
-          };
-        const icons = {
-        Trails: {
-          name: "Hiking Trail",
-          icon: boot.url,
-        },
-        Campground: {
-          name: "Campground",
-          icon: "https://img.icons8.com/external-those-icons-lineal-color-those-icons/24/000000/external-camping-camping-hiking-those-icons-lineal-color-those-icons.png"
-        }
-        };
-        const legend = document.getElementById("legend");
-        for (const key in icons) {
-          const type=icons[key];
-          const name = type.name;
-          const icon = type.icon;
-          const div = document.createElement("div");
-          div.innerHTML = '<img src='+icon+' width="24" height="24">'+name;
-          legend.appendChild(div);
-        }
-        map.controls[google.maps.ControlPosition.RIGHT_TOP].push(legend);
+        mark.addListener("click", () => {
+          infowindow.close();
+          infowindow.setContent(contentString);
+          infowindow.open(map,mark);
+      });
+    }
+    const icons = {
+      Trails: {
+        name: "Hiking Trail",
+        icon: boot.url,
+      },
+      Campground: {
+        name: "Campground",
+        icon: "https://img.icons8.com/external-those-icons-lineal-color-those-icons/24/000000/external-camping-camping-hiking-those-icons-lineal-color-those-icons.png"
       }
-        /*create a list to hold coordinates and names of the campgrounds I visited*/
-        const campgrounds = [
-          ["Townsite Campground, Waterton Lakes", 49.0484393, -113.9093212],
-          ["Wabasso Campground, Jasper", 52.7643534, -117.987634973],
-          ["Tunnel Mountain Village Campground, Banff", 51.195413052, -115.522632340],
-          ["Lake Louise Campground, Banff", 51.41773100, -116.17266119],
+    };
+    const legend = document.getElementById("legend");
+    for (const key in icons) {
+      const type=icons[key];
+      const name = type.name;
+      const icon = type.icon;
+      const div = document.createElement("div");
+      div.innerHTML = '<img src='+icon+' width="24" height="24">'+name;
+      legend.appendChild(div);
+    }
+    map.controls[google.maps.ControlPosition.RIGHT_TOP].push(legend);
+  }
+      const campgrounds = [
+        ["Townsite Campground, Waterton Lakes", 49.0484393, -113.9093212],
+        ["Wabasso Campground, Jasper", 52.7643534, -117.987634973],
+        ["Tunnel Mountain Village Campground, Banff", 51.195413052, -115.522632340],
+        ["Lake Louise Campground, Banff", 51.41773100, -116.17266119],
         ];
-        
-        /*Function to set the campground markers*/
-        function setMarkers(map) {
-          for (let index = 0; index < campgrounds.length; index++) {
-            const campsite = campgrounds[index];
-            const marker = new google.maps.Marker({
-              position: {lat:campsite[1], lng:campsite[2]},
-              map,
-              icon: tent,
-              title: campsite[0],
-              zIndex:3
-            });
-            google.maps.event.addListener(marker,"click", () => {
-            map.setZoom(12);
-            map.setCenter(marker.getPosition());
+      
+      /*hiking boot icon: <img src=/>*/
+      function setMarkers(map) {
+        const tent = {
+          url: "https://img.icons8.com/external-those-icons-lineal-color-those-icons/24/000000/external-camping-camping-hiking-those-icons-lineal-color-those-icons.png",
+          Size: new google.maps.Size(24,24),
+        };
+        for (let index = 0; index < campgrounds.length; index++) {
+          const campsite = campgrounds[index];
+          const marker = new google.maps.Marker({
+            position: {lat:campsite[1], lng:campsite[2]},
+            map,
+            icon: tent,
+            title: campsite[0],
+            zIndex:3
           });
-            google.maps.event.addListener(marker, "dblclick", () => {
-              map.setZoom(6);
-              map.setCenter({ lat:  51.549, lng: -115.815 });
-            });
-          }
+          google.maps.event.addListener(marker,"click", () => {
+          map.setZoom(12);
+          map.setCenter(marker.getPosition());
+        });
+          google.maps.event.addListener(marker, "dblclick", () => {
+            map.setZoom(6);
+            map.setCenter({ lat:  51.549, lng: -115.815 });
+          });
         }
-        
+      }
     </script>
   </head>
   <body>
